@@ -11,6 +11,7 @@ import MyuseState003 from './components/ex02_useState/MyuseState003';
 import MyuseState004 from './components/ex02_useState/MyuseState004';
 import MyuseState005 from './components/ex02_useState/MyuseState005';
 import MyuseState006 from './components/ex02_useState/MyuseState006.js';
+import MyuseRef001 from './components/ex03_useRef/MyuseRef001';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
       {/* {<MyuseState003 />} */}
       {/* {<MyuseState004 />} */}
       {/* {<MyuseState005 />} */}
-      {<MyuseState006 />}
+      {/* {<MyuseState006 />} */}
+      {<MyuseRef001 />}
     </div>
   );
 }
