@@ -1,25 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const wrap = {
+    width: '500px',
+    border: '1px solid black',
+    margin: '10px auto',
+  };
+
+  return <div className='App' style={wrap}></div>;
 }
 
 export default App;
