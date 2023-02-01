@@ -1,6 +1,11 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import Input from './components/input2';
+import Todo from './components/todo2';
+import { TodoContext } from './contexts/TodoContext';
+import { InputContext } from './contexts/InputContext';
 
+//상태전달 : Context API + useContext()
 function App() {
   const wrap = {
     width: '500px',
@@ -28,6 +33,7 @@ function App() {
   };
 
   const updateTodo = (id) => {
+    // 입력을 하기위한 구문
     setTodos(
       todos.map((todo) =>
         todo.id === id
@@ -57,41 +63,15 @@ function App() {
   // JSX로 사용하는 부분
   return (
     <div className='App' style={wrap}>
-      <h1>TODO LIST</h1>
-      <form onSubmit={insertTodo}>
-        <input
-          type='text'
-          required={true}
-          value={input}
-          onChange={handleChangeText}
-        />
-        <input type='submit' value='Create' />
-      </form>
-      {todos
-        ? todos.map((todo) => {
-            return (
-              // list를 출력할때는 각 값의 고유한 값을 줘야한다
-              <div className='todo' key={todo.id}>
-                <h3>
-                  <label
-                    className={todo.completed ? 'completed' : null}
-                    onClick={() => updateTodo(todo.id)}
-                  >
-                    {todo.todoname}
-                  </label>
+      <h1>TODO LIST 1</h1>
 
-                  <label
-                    onClick={() => {
-                      deleteTodo(todo.id);
-                    }}
-                  >
-                    &nbsp;&nbsp;삭제
-                  </label>
-                </h3>
-              </div>
-            );
-          })
-        : null}
+      <InputContext.Provider value={{ input, insertTodo, handleChangeText }}>
+        <Input />
+      </InputContext.Provider>
+
+      <TodoContext.Provider value={{ todos, updateTodo, deleteTodo }}>
+        <Todo />
+      </TodoContext.Provider>
     </div>
   );
 }
