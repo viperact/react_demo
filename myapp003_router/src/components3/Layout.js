@@ -1,31 +1,42 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
-
-const activeStyle = ({ isActive }) => ({
-  color: isActive ? 'green' : '',
-  fontsize: isActive ? '2rem' : '',
-});
+import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Layout = () => {
+  // const style = {
+  //   color: 'green',
+  //   fontSize: '20px',
+  // };
+
+  const activeStyle = ({ isActive }) => ({
+    color: isActive ? 'green' : '',
+    fontSize: isActive ? '2rem' : '',
+  });
+
   return (
     <div>
       <nav>
         <ul>
           <li>
+            {/* 선택한 컴포넌트에 스타일 지정이 가능하다. */}
             <NavLink to='/' style={activeStyle}>
               Home
             </NavLink>
           </li>
-
           <li>
-            {/* 
-                선택한 컴포넌트에 스타일 지정이 가능하다.
-                Link는 적용되지 않는다. NavLink 사용
-            */}
+            <NavLink to='/about' style={activeStyle}>
+              About
+            </NavLink>
+          </li>
+          <li>
             <NavLink to='/dashboard' style={activeStyle}>
               Dashboard
             </NavLink>
           </li>
-
+          <li>
+            <NavLink to='/main' style={activeStyle}>
+              Product
+            </NavLink>
+          </li>
           <li>
             <NavLink to='/nothing-here' style={activeStyle}>
               Nothing Here

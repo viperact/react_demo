@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import About from './components1/About';
-import Dashboard from './components3/Dashboard';
-import Home from './components3/Home';
-import Layout from './components3/Layout';
-import NoMatch from './components3/NoMatch';
+import About from './components2/About';
+import Dashboard from './components2/Dashboard';
+import Home from './components2/Home';
+import Layout from './components2/Layout';
+import NoMatch from './components2/NoMatch';
 
 // v6
 // npm install react-router-dom
