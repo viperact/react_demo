@@ -2,6 +2,8 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { baseUrl } from './commonApi/todoApi';
+import Input from './components/input1';
+import Todo from './components/todo1';
 
 function App() {
   const wrap = {
@@ -96,41 +98,14 @@ function App() {
   // JSX로 사용하는 부분
   return (
     <div className='App' style={wrap}>
-      <h1>TODO LIST</h1>
-      <form onSubmit={insertTodo}>
-        <input
-          type='text'
-          required={true}
-          value={input}
-          onChange={handleChangeText}
-        />
-        <input type='submit' value='Create' />
-      </form>
-      {todos
-        ? todos.map((todo) => {
-            return (
-              // list를 출력할때는 각 값의 고유한 값을 줘야한다
-              <div className='todo' key={todo.id}>
-                <h3>
-                  <label
-                    className={todo.completed ? 'completed' : null}
-                    onClick={() => updateTodo(todo.id, todo.completed)}
-                  >
-                    {todo.todoname}
-                  </label>
+      <h1>TODO LIST 1(props)</h1>
+      <Input
+        input={input}
+        insertTodo={insertTodo}
+        handleChangeText={handleChangeText}
+      />
 
-                  <label
-                    onClick={() => {
-                      deleteTodo(todo.id);
-                    }}
-                  >
-                    &nbsp;&nbsp;삭제
-                  </label>
-                </h3>
-              </div>
-            );
-          })
-        : null}
+      <Todo todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }
