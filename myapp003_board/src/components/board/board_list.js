@@ -7,16 +7,17 @@ import PageNavigation from './page_nav';
 
 const Boardlist = () => {
   const [boardList, setBoardList] = useState([]);
-  const [pv, setPv] = useState({ currentPage: 1 });
+  const [pv, setPv /* 페이지값 저장 */] = useState({ currentPage: 1 });
   const { currentPage } = useParams();
 
   useEffect(() => {
+    console.log('dd:' + currentPage);
     getList(currentPage ? currentPage : 1);
   }, []);
 
   // async 동기화처리
   const getList = async (currentPage) => {
-    console.log(currentPage);
+    console.log('currentPage:', currentPage);
     await axios.get(baseUrl + '/board/list/' + currentPage).then((response) => {
       // console.log(response.data);
       setBoardList(response.data.aList);
@@ -52,7 +53,7 @@ const Boardlist = () => {
             return (
               <TableRow
                 board={board}
-                currentPage={currentPage}
+                currentPage={pv.currentPage}
                 key={board.num}
               />
             );
