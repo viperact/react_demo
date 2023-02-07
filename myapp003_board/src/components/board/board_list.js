@@ -60,14 +60,19 @@ const Boardlist = () => {
           })}
         </tbody>
       </table>
-      <PageNavigation
-        currentPage={pv.currentPage}
-        startPage={pv.startPage}
-        endPage={pv.endPage}
-        blockPage={pv.blockPage}
-        totalPage={pv.totalPage}
-        getList={getList}
-      />
+
+      {pv ? (
+        <PageNavigation
+          currentPage={pv.currentPage}
+          startPage={pv.startPage}
+          endPage={pv.endPage}
+          blockPage={pv.blockPage}
+          totalPage={pv.totalPage}
+          getList={getList}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 };

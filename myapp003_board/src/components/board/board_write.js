@@ -72,7 +72,7 @@ const BoardWrite = () => {
           filename: null,
         });
 
-        //navigator(`/board/list/${currentPage ? currentPage : 1}`); // 이 구문으로 했다면 formData.append('currentPage', currentPage); 사용하지않아도됨
+        navigator(`/board/list/${currentPage ? currentPage : 1}`); // 이 구문으로 했다면 formData.append('currentPage', currentPage); 사용하지않아도됨
         // navigator(`/board/list/${response.data}`); // 이 구문을 사용했다면 formData.append('currentPage', currentPage); 사용
       })
       .catch((err) => {
