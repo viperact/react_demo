@@ -17,24 +17,27 @@ function BaseLayout() {
               </NavLink>
             </li>
 
-            <li>
-              <NavLink style={activeStyle} className='nav-link' to='/login'>
-                LOGIN
-              </NavLink>
-            </li>
+            {localStorage.getItem('username') !== null ? (
+              <li>
+                <NavLink style={activeStyle} className='nav-link' to='/logout'>
+                  {localStorage.getItem('username') + ' LOGOUT'}
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <NavLink style={activeStyle} className='nav-link' to='/login'>
+                    LOGIN
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink style={activeStyle} className='nav-link' to='/signup'>
-                SIGNUP
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink style={activeStyle} className='nav-link' to='/join'>
-                JOIN
-              </NavLink>
-            </li>
-
+                <li>
+                  <NavLink style={activeStyle} className='nav-link' to='/join'>
+                    JOIN
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li>
               <NavLink style={activeStyle} className='nav-link' to='/board'>
                 BOARD

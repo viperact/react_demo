@@ -10,7 +10,7 @@ const JoinForm = () => {
     username: '',
     password: '',
     email: '',
-    authRole: '',
+    authRole: 'ROLE_MEMBER',
   });
 
   const onSubmit = async (e) => {
