@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../../commonApi/todoApi';
 
+//회원가입
 const JoinForm = () => {
   const navigator = useNavigate();
 
@@ -18,6 +19,14 @@ const JoinForm = () => {
     await axios
       .post(`${baseUrl}/join`, member, {
         headers: { 'Content-Type': 'application/json' },
+      })
+      .then((response) => {
+        setMember({
+          username: '',
+          password: '',
+          email: '',
+          authRole: 'ROLE_MEMBER',
+        });
       })
       .then((response) => {
         navigator('/');

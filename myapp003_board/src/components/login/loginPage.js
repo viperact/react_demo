@@ -5,7 +5,7 @@ import { baseUrl } from '../../commonApi/todoApi';
 //import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  //const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -32,7 +32,13 @@ const LoginPage = () => {
       .then((response) => {
         // console.log("response:", response.data);
 
-        let jwtToken = response.headers['authorization'];
+        console.log(response);
+
+        // 값을 받을때는 소문자
+        let jwtToken = response.headers['Authorization'];
+        console.log(response.headers['Access-Control-Allow-Credentials']);
+        // let jwtToken = response.headers.get('Authorization');
+
         let jwtUsername = response.data.username;
         console.log('jwtToken', jwtToken);
         localStorage.setItem('Authorization', jwtToken);
@@ -41,10 +47,10 @@ const LoginPage = () => {
         setUsername('');
         setPassword('');
       })
-      .then((response) => {
-        // navigate("/");
-        window.location.replace('/');
-      })
+      // .then((response) => {
+      // navigate('/');
+      // window.location.replace('/');
+      // })
       .catch((err) => {
         console.error(err.message);
       });
