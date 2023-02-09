@@ -47,10 +47,10 @@ const LoginPage = () => {
         setUsername('');
         setPassword('');
       })
-      // .then((response) => {
-      // navigate('/');
-      // window.location.replace('/');
-      // })
+      .then((response) => {
+        // navigate('/');
+        window.location.replace('/');
+      })
       .catch((err) => {
         console.error(err.message);
       });
